@@ -1,22 +1,18 @@
 import React from 'react'
 import { useState } from 'react'
 
-// ValidationForm is a React component that renders a form for email validation
 function ValidationForm() {
-  // useState hook is used to create state variables in functional components
   // email is the current email value, setEmail is a function used to update the email value
   const [email, setEmail] = useState('')
   // result is the current validation result, setResult is a function used to update the result value
   const [result, setResult] = useState('')
 
-  // handleChange is an event handler for the input field's onChange event
   // It updates the email state variable with the current value of the input field
   function handleChange(event) {
     setEmail(event.target.value)
   }
 
-  // handleSubmit is an event handler for the form's onSubmit event
-  // It prevents the default refresh behavior of the form submission and calls the email validation function
+  // Prevents the default refresh behavior of the form submission and calls the email validation function
   function handleSubmit(event) {
     event.preventDefault()
 
@@ -41,7 +37,7 @@ function ValidationForm() {
       return
     }
 
-    // Check if the email is not too long
+    // Check if the email is too long
     if (email.length > 100) {
       setResult("Invalid email: cannot be longer than 100 characters.")
       return
